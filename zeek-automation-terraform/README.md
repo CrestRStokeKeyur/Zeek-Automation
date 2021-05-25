@@ -208,8 +208,6 @@ credentials to pass to these scripts. Credentials can be provided via two mechan
 
 This repo has the following folder structure:
 
-- [root](./): The root folder contains an example directory which illustrates on how to deploy Google Zeek Automation module.
-
 - [examples](./examples): This folder contains examples of how to use the module.
 
 - [files](./files): This folder contains startup script file.
