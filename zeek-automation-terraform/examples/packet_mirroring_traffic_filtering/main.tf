@@ -23,23 +23,13 @@ provider "google" {
 }
 
 # -------------------------------------------------------------- #
-# GET GCP METADATA
-# -------------------------------------------------------------- #
-
-data "google_client_openid_userinfo" "main" {}
-
-# -------------------------------------------------------------- #
 # MODULE CONFIGURATIONS
 # -------------------------------------------------------------- #
 
-locals {
-  gcp_project_id = element(split("@", element(split(".", data.google_client_openid_userinfo.main.email), 0)), 1)
-}
-
 module "google_zeek_automation" {
   source                = "<link>/google_zeek_automation"
-  gcp_project           = local.gcp_project_id
-  service_account_email = data.google_client_openid_userinfo.main.email
+  gcp_project           = var.gcp_project_id
+  service_account_email = var.service_account_email
 
   subnets            = var.subnets
   mirror_vpc_network = var.mirror_vpc_network

@@ -33,8 +33,18 @@ variable "bucket" {
 # MODULE VARIABLES
 # -------------------------------------------------------------- #
 
+variable "gcp_project_id" {
+  description = "GCP Project Id."
+  type        = string
+}
+
+variable "service_account_email" {
+  description = "User's Service Account Email."
+  type        = string
+}
+
 variable "subnets" {
-  description = "The list of subnets being created"
+  description = "The list of subnets being created."
   type = list(object({
     mirror_vpc_subnet_cidr      = list(string)
     collector_vpc_subnet_cidr   = string

@@ -6,8 +6,8 @@ This example demonstrates how to use google zeek automation module with basic co
 ```tf
 module "google_zeek_automation" {
   source                = "<link>/google_zeek_automation"
-  gcp_project           = local.gcp_project_id
-  service_account_email = data.google_client_openid_userinfo.main.email
+  gcp_project           = var.gcp_project_id
+  service_account_email = var.service_account_email
 
   subnets               = var.subnets
   mirror_vpc_network    = var.mirror_vpc_network
@@ -17,6 +17,10 @@ module "google_zeek_automation" {
 Above variables can be set either by specifying it through [Environment Variables](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) or setting it in `terraform.tfvars` file. Below is an example of how to set the variables in `terraform.tfvars` file.
 
 ```tf
+  gcp_project_id = "{{gcp_project_id}}"
+  
+  service_account_email = "{{User's Service Account Email.}}"
+
   subnets = [
     {
       mirror_vpc_subnet_cidr      = ["{{subnet_cidr}}"]
@@ -39,6 +43,8 @@ Above variables can be set either by specifying it through [Environment Variable
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | bucket | Name of the bucket to store .tfstate file remotely. | `string` | n/a | yes |
+| gcp_project_id | GCP Project ID. | `string` | n/a | yes |
+| service_account_email | User's Service Account Email. | `string` | n/a | yes |
 | cidr\_ranges | IP CIDR ranges that apply as a filter on the source (ingress) or destination (egress) IP in the IP header. Only IPv4 is supported. | `list(string)` | `[]` | no |
 | credentials | Path to a service account credentials file with rights to run the Google Zeek Automation. If this file is absent Terraform will fall back to Application Default Credentials. | `string` | `""` | no |
 | direction | Direction of traffic to mirror. Default value: "BOTH" Possible values: ["INGRESS", "EGRESS", "BOTH"] | `string` | `"BOTH"` | no |
