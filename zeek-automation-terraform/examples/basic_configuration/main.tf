@@ -31,7 +31,7 @@ module "google_zeek_automation" {
   gcp_project           = var.gcp_project_id
   service_account_email = var.service_account_email
 
+  collector_vpc_name = var.collector_vpc_name
   subnets            = var.subnets
-  mirror_vpc_network = var.mirror_vpc_network
   mirror_vpc_subnets = var.mirror_vpc_subnets
 }
