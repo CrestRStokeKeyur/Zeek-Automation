@@ -43,7 +43,7 @@ variable "service_account_email" {
 }
 
 variable "collector_vpc_name" {
-  description = "Portion of name to be generated for the VPC network."
+  description = "This is name of collector vpc."
   type        = string
 }
 

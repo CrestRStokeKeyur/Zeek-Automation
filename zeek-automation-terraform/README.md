@@ -136,7 +136,7 @@ Then perform the following commands on the root folder:
 |------|-------------|------|---------|:--------:|
 | gcp\_project | GCP Project Id | `string` | n/a | yes |
 | golden\_image | This is name of zeek-fluentd packer image | `string` | `"projects/zeekautomation/global/images/zeek-fluentd-golden-image-v1"` | no |
-| collector\_vpc\_name | Portion of name to be generated for the VPC network. | `string` | n/a | yes |
+| collector\_vpc\_name | This is name of collector vpc. | `string` | n/a | yes |
 | mirror\_vpc\_instances | Mirror VPC Instances list to be mirrored. <br> <br>**(Note: Mirror VPC should reside in the same project as collector VPC because cross project referencing of instances is not allowed by GCP)**  | `map(list(string))` | `{}` | no |
 | mirror\_vpc\_subnets | Mirror VPC Subnets list to be mirrored. | `map(list(string))` | `{}` | no |
 | mirror\_vpc\_tags | Mirror VPC Tags list to be mirrored. | `map(list(string))` | `{}` | no |

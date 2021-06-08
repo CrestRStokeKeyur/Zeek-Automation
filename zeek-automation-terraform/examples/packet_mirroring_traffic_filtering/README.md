@@ -26,7 +26,7 @@ Above variables can be set either by specifying it through [Environment Variable
   
   service_account_email = "{{User's Service Account Email.}}"
 
-  collector_vpc_name    = "{{Portion of name to be generated for the VPC network.}}"
+  collector_vpc_name    = "{{collector-vpc}}"
 
   subnets = [
     {
@@ -58,7 +58,7 @@ Above variables can be set either by specifying it through [Environment Variable
 | bucket | Name of the bucket to store .tfstate file remotely. | `string` | n/a | yes |
 | gcp_project_id | GCP Project ID. | `string` | n/a | yes |
 | service_account_email | User's Service Account Email. | `string` | n/a | yes |
-| collector_vpc_name | Portion of name to be generated for the VPC network. | `string` | n/a | yes |
+| collector_vpc_name | This is name of collector vpc. | `string` | n/a | yes |
 | cidr\_ranges | IP CIDR ranges that apply as a filter on the source (ingress) or destination (egress) IP in the IP header. Only IPv4 is supported. | `list(string)` | `[]` | no |
 | credentials | Path to a service account credentials file with rights to run the Google Zeek Automation. If this file is absent Terraform will fall back to Application Default Credentials. | `string` | `""` | no |
 | direction | Direction of traffic to mirror. Default value: "BOTH" Possible values: ["INGRESS", "EGRESS", "BOTH"] | `string` | `"BOTH"` | no |
