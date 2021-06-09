@@ -25,10 +25,12 @@ Above variables can be set either by specifying it through [Environment Variable
 
   subnets = [
     {
-      mirror_vpc_network      = "{{mirror_vpc_network}}"
+      mirror_vpc_network          = "{{mirror_vpc_network}}"
       collector_vpc_subnet_cidr   = "{{subnet_cidr}}"
       collector_vpc_subnet_region = "{{region}}"
     },
+
+    # Note: For each mirror VPC and regions, user needs to repeat above block accordingly.
   ]
 
   mirror_vpc_subnets = {

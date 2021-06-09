@@ -37,7 +37,6 @@ control "gcp" do
   describe google_compute_firewalls(project: project_id) do
     its('firewall_names') { should include "#{network_name}-rule-allow-ingress" }
     its('firewall_names') { should include "#{network_name}-rule-allow-health-check" }
-    its('firewall_names') { should include "#{mirror_vpc_name}-rule-allow-egress" }
   end
 
   describe google_compute_forwarding_rule(

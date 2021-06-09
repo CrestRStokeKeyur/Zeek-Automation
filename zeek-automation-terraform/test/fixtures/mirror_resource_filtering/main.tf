@@ -17,6 +17,7 @@
 module "mirror_resource_filtering" {
   source                = "../../../examples/mirror_resource_filtering"
   bucket                = var.bucket
+  credentials           = var.credentials
   gcp_project_id        = var.gcp_project_id
   service_account_email = var.service_account_email
 

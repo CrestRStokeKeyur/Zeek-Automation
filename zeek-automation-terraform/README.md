@@ -101,7 +101,7 @@ module "google_zeek_automation" {
   collector_vpc_name    = "collector-vpc"
   subnets = [
     {
-      mirror_vpc_network      = ["projects/my-project-123/global/networks/test-mirror"]
+      mirror_vpc_network          = "projects/my-project-123/global/networks/test-mirror"
       collector_vpc_subnet_cidr   = "10.11.0.0/24"
       collector_vpc_subnet_region = "us-west1"
     },
