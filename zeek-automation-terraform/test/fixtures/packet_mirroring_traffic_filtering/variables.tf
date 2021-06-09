@@ -26,6 +26,7 @@ variable "bucket" {
 variable "credentials" {
   description = "GCP credentials file"
   type        = string
+  default     = ""
 }
 
 # -------------------------------------------------------------- #
