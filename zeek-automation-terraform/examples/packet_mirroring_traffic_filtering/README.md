@@ -22,7 +22,7 @@ module "google_zeek_automation" {
 Above variables can be set either by specifying it through [Environment Variables](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) or setting it in `terraform.tfvars` file. Below is an example of how to set the variables in `terraform.tfvars` file.
 
 ```tf
-  gcp_project_id = "{{gcp_project_id}}"
+  gcp_project_id = "{{collector_project_id}}"
   
   service_account_email = "{{User's Service Account Email.}}"
 
@@ -39,7 +39,7 @@ Above variables can be set either by specifying it through [Environment Variable
   ]
 
   mirror_vpc_subnets = {
-    "{{project_id--mirror_vpc_name--region}}" = ["{{subnet_name}}"]
+    "{{mirror_project_id--mirror_vpc_name--region}}" = ["{{subnet_id}}"]
   }
 
   
@@ -58,7 +58,7 @@ Above variables can be set either by specifying it through [Environment Variable
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | bucket | Name of the bucket to store .tfstate file remotely. | `string` | n/a | yes |
-| gcp_project_id | GCP Project ID. | `string` | n/a | yes |
+| gcp_project_id | GCP Project ID where collector vpc will be provisioned. | `string` | n/a | yes |
 | service_account_email | User's Service Account Email. | `string` | n/a | yes |
 | collector_vpc_name | This is name of collector vpc. | `string` | n/a | yes |
 | cidr\_ranges | IP CIDR ranges that apply as a filter on the source (ingress) or destination (egress) IP in the IP header. Only IPv4 is supported. | `list(string)` | `[]` | no |

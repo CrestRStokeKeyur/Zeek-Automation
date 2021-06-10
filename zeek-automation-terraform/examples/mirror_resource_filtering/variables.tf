@@ -34,7 +34,7 @@ variable "bucket" {
 # -------------------------------------------------------------- #
 
 variable "gcp_project_id" {
-  description = "GCP Project Id."
+  description = "GCP Project ID where collector vpc will be provisioned."
   type        = string
 }
 

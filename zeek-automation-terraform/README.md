@@ -95,20 +95,20 @@ In order to operate with the Service Account you must activate the following API
 ```tf
 module "google_zeek_automation" {
   source                = "<link>/google_zeek_automation"
-  gcp_project           = "project-123"
+  gcp_project           = "collector_project-123"
   service_account_email = "service-account@project-123.iam.gserviceaccount.com"
 
   collector_vpc_name    = "collector-vpc"
   subnets = [
     {
-      mirror_vpc_network          = "projects/my-project-123/global/networks/test-mirror"
+      mirror_vpc_network          = "projects/mirror-project-123/global/networks/test-mirror"
       collector_vpc_subnet_cidr   = "10.11.0.0/24"
       collector_vpc_subnet_region = "us-west1"
     },
   ]
 
   mirror_vpc_subnets = {
-    "my-project-123--mirror_vpc_name--us-west1" = ["projects/my-project-123/regions/us-west1/subnetworks/subnet-01"]
+    "mirror-project-123--mirror_vpc_name--us-west1" = ["projects/mirror-project-123/regions/us-west1/subnetworks/subnet-01"]
   }
 
 }
@@ -134,7 +134,7 @@ Then perform the following commands on the root folder:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| gcp\_project | GCP Project Id | `string` | n/a | yes |
+| gcp\_project | GCP Project ID where collector vpc will be provisioned. | `string` | n/a | yes |
 | golden\_image | This is name of zeek-fluentd packer image | `string` | `"projects/zeekautomation/global/images/zeek-fluentd-golden-image-v1"` | no |
 | collector\_vpc\_name | This is name of collector vpc. | `string` | n/a | yes |
 | mirror\_vpc\_instances | Mirror VPC Instances list to be mirrored. <br> <br>**(Note: Mirror VPC should reside in the same project as collector VPC because cross project referencing of instances is not allowed by GCP)**  | `map(list(string))` | `{}` | no |
